@@ -10,7 +10,7 @@ import SearchMenu from './SearchMenu'
 import { useMediaQuery } from '@react-hookz/web'
 import useMounted from 'hooks/useMounted'
 import ListItemButton from './navbar/ListItemButton'
-import SwapButton from './navbar/SwapButton'
+// import SwapButton from './navbar/SwapButton'
 import NavbarLogo from './navbar/NavbarLogo'
 
 const SearchCollections = dynamic(() => import('./SearchCollections'))
@@ -146,11 +146,11 @@ const Navbar: FC = () => {
               {filterComponent && filterComponent}
             </div>
           )}
-          {hasCommunityDropdown &&
+          {/* {hasCommunityDropdown &&
           themeSwitcherEnabled &&
           !showDesktopSearch ? null : (
             <SwapButton />
-          )}
+          )} */}
           <CartMenu />
           {hasCommunityDropdown &&
           themeSwitcherEnabled &&
