@@ -10,7 +10,8 @@ import SearchMenu from './SearchMenu'
 import { useMediaQuery } from '@react-hookz/web'
 import useMounted from 'hooks/useMounted'
 import ListItemButton from './navbar/ListItemButton'
-import Link from 'next/link'
+import SwapButton from './navbar/SwapButton'
+import NavbarLogo from './navbar/NavbarLogo'
 
 const SearchCollections = dynamic(() => import('./SearchCollections'))
 const CommunityDropdown = dynamic(() => import('./CommunityDropdown'))
@@ -126,9 +127,7 @@ const Navbar: FC = () => {
 
   return (
     <nav className="sticky top-0 z-[1000] col-span-full flex items-center justify-between gap-2 border-b border-[#D4D4D4] bg-white px-6 py-4 dark:border-neutral-600 dark:bg-black md:gap-3 md:py-6 md:px-16">
-      <div className="text-dark reservoir-h6 text-3xl font-extrabold hover:text-[#1F2937] dark:text-white">
-        <Link href="/">Marketplate</Link>
-      </div>
+      <NavbarLogo />
       {(hasCommunityDropdown || showDesktopSearch) && (
         <div className="absolute top-0 left-0 right-0 flex h-full w-full items-center justify-center">
           {filterComponent && filterComponent}
@@ -146,6 +145,11 @@ const Navbar: FC = () => {
             <div className="ml-auto flex">
               {filterComponent && filterComponent}
             </div>
+          )}
+          {hasCommunityDropdown &&
+          themeSwitcherEnabled &&
+          !showDesktopSearch ? null : (
+            <SwapButton />
           )}
           <CartMenu />
           {hasCommunityDropdown &&
