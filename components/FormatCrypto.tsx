@@ -7,7 +7,7 @@ type FormatCryptoProps = {
 }
 
 const API_BASE =
-  process.env.NEXT_PUBLIC_RESERVOIR_API_BASE || 'https://api.reservoir.tools'
+  process.env.NEXT_PUBLIC_RESERVOIR_API_BASE_EXTERNAL || 'https://api.reservoir.tools'
 
 type Props = ComponentProps<typeof FormatCurrency> & FormatCryptoProps
 
