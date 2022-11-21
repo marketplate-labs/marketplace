@@ -1,0 +1,9 @@
+# Git
+.git
+
+# Node JS
+node_modules
+npm-debug.log
+
+# Next
+.next

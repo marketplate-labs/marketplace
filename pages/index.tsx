@@ -107,34 +107,34 @@ export const getStaticProps: GetStaticProps<{
     collections: paths['/collections/v5']['get']['responses']['200']['schema']
   }
 }> = async () => {
-  const options: RequestInit | undefined = {}
+  // const options: RequestInit | undefined = {}
 
-  if (RESERVOIR_API_KEY) {
-    options.headers = {
-      'x-api-key': RESERVOIR_API_KEY,
-    }
-  }
+  // if (RESERVOIR_API_KEY) {
+  //   options.headers = {
+  //     'x-api-key': RESERVOIR_API_KEY,
+  //   }
+  // }
 
-  const url = new URL('/collections/v5', RESERVOIR_API_BASE)
+  // const url = new URL('/collections/v5', RESERVOIR_API_BASE)
 
-  let query: paths['/collections/v5']['get']['parameters']['query'] = {
-    limit: 20,
-    sortBy: '1DayVolume',
-  }
+  // let query: paths['/collections/v5']['get']['parameters']['query'] = {
+  //   limit: 20,
+  //   sortBy: '1DayVolume',
+  // }
 
-  if (COLLECTION && !COMMUNITY) query.contract = [COLLECTION]
-  if (COMMUNITY) query.community = COMMUNITY
-  if (COLLECTION_SET_ID) query.collectionsSetId = COLLECTION_SET_ID
+  // if (COLLECTION && !COMMUNITY) query.contract = [COLLECTION]
+  // if (COMMUNITY) query.community = COMMUNITY
+  // if (COLLECTION_SET_ID) query.collectionsSetId = COLLECTION_SET_ID
 
-  const href = setParams(url, query)
-  const res = await fetch(href, options)
+  // const href = setParams(url, query)
+  // const res = await fetch(href, options)
 
-  const collections = (await res.json()) as Props['fallback']['collections']
+  // const collections = (await res.json()) as Props['fallback']['collections']
 
   return {
     props: {
       fallback: {
-        collections,
+        collections: {},
       },
     },
   }
